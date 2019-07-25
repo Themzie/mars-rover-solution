@@ -1,8 +1,11 @@
-package zw.ac.uz.marsrover.services;
+package zw.ac.uz.marsrover.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import zw.ac.uz.marsrover.model.ClientRequest;
 import zw.ac.uz.marsrover.model.ConnectionParameters;
 import zw.ac.uz.marsrover.model.ServerResponse;
+import zw.ac.uz.marsrover.service.api.Operation;
 import zw.ac.uz.marsrover.util.Constants;
 
 import java.io.DataInputStream;
@@ -12,17 +15,19 @@ import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Operation {
+@Service
+@Slf4j
+public class OperationImpl implements Operation {
     public Socket connect(ConnectionParameters connectionParameters) {
         try {
             Socket clientSocket = new Socket(connectionParameters.getHostname(), connectionParameters.getPort());
             return clientSocket;
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(">>>Exception" + e);
+
         }
         return new Socket();
     }
-
 
     public ServerResponse init(Socket controller) {
         try (DataInputStream dataInputStream = new DataInputStream(controller.getInputStream())) {
@@ -31,7 +36,7 @@ public class Operation {
             return response;
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(">>>Exception" + e);
         }
         return null;
     }
@@ -44,7 +49,7 @@ public class Operation {
             dataOutputStream.write(file);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(">>>Exception" + e);
         }
     }
 }
