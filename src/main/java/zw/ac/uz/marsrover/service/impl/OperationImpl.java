@@ -15,8 +15,9 @@ import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-@Service
+
 @Slf4j
+@Service
 public class OperationImpl implements Operation {
     public Socket connect(ConnectionParameters connectionParameters) {
         try {
@@ -49,7 +50,7 @@ public class OperationImpl implements Operation {
             dataOutputStream.write(file);
 
         } catch (IOException e) {
-            log.error(">>>Exception" + e);
+            log.error(">>>>>>>Exception" + e);
         }
     }
 }

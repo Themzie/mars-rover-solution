@@ -6,6 +6,7 @@ import zw.ac.uz.marsrover.model.ServerResponse;
 
 import java.net.Socket;
 
+
 public interface Operation {
     Socket connect(ConnectionParameters connectionParameters);
 
