@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: zw.ac.uz.marsrover.service.impl.OperationImplTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 14.105 s <<< FAILURE! - in zw.ac.uz.marsrover.service.impl.OperationImplTest
-whenGivenConnectionParameters_thenConnect  Time elapsed: 0.035 s  <<< ERROR!
-java.lang.NullPointerException
-	at zw.ac.uz.marsrover.service.impl.OperationImplTest.whenGivenConnectionParameters_thenConnect(OperationImplTest.java:33)
-
