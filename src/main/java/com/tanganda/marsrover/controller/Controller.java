@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tanganda.marsrover.service.ControllerService;
 
 @RestController
-@RequestMapping("/mars-robot")
+@RequestMapping("/mars-rover")
 public class Controller {
 	
 	@Autowired
     private ControllerService robotService;
 
-    @RequestMapping(value = "/moveto/{command}", method = RequestMethod.POST)
+    @RequestMapping(value = "/tanganda/{command}", method = RequestMethod.POST)
     public ResponseEntity<?> moveTo(@PathVariable final String command) {
         com.tanganda.marsrover.model.Controller robot = robotService.moveTo(command);
         return ResponseEntity.ok(robot.toString());
